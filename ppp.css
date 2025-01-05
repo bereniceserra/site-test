@@ -1,0 +1,158 @@
+/*-------------- VARIABLES ---------*/
+/*FR — changer les variables largeur, hauteur (format de la page), marges et position du footer */
+/*EN — Change variable of the page width, page height, width and footer position*/
+
+:root {
+	/* Largeur de la page / Page width */
+	--page-width: 210mm;
+	/* Hauteur de la page / Page height */
+	--page-height: 297mm;
+	/* Marge de la page / Page margins */
+	--page-margin: 0mm;
+}
+
+/*--------- GENERAL STYLE -------*/
+
+body {
+margin : 0;
+}
+
+h1 {
+	font-family: 'Roboto Mono', monospace;
+    font-size: 10pt;
+    font-weight: 400;
+		padding-left:10%;
+		padding-top:10%;
+}
+
+h2 {
+	font-family: 'Roboto Mono', monospace;
+    font-size: 8pt;
+    text-align: right;
+    font-weight: 400;
+}
+
+p {
+    font-size: 9pt;
+    text-align: left;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+}
+
+.wrapper {
+    display:grid;
+    grid-template-columns: repeat(12,60px);
+    grid-template-rows: repeat(12,87px);
+    margin: 10mm;
+    }
+
+.one {
+  grid-row: 6/13;
+  grid-column: 1/9;
+  align-self: end;
+}
+
+.one img {
+    width: 420px;
+}
+
+.two {
+    grid-row: 7/13;
+    grid-column: 5/13;
+    align-self: end;
+}
+
+.two img {
+    width:480px;
+}
+
+.three {
+    grid-row: 3/7;
+    grid-column: 5/13;
+}
+
+.three img {
+    width: 480px;
+}
+
+.four {
+    grid-row: 4/12;
+    grid-column: 3/11;
+}
+
+.four img {
+    width: 466px;
+}
+
+.five {
+    grid-row: 1/10;
+    grid-column: 4/13;
+}
+
+.five img {
+    width: 540px;
+}
+
+.colophon {
+    grid-row: 6/13;
+    grid-column: 3/11;
+    align-self: end;
+}
+
+/* Ajouter la classe .print dans une balise HTML pour n'afficher que les éléments à l'impression*/
+/* Add .print class to display html elements only for the print */
+.print {
+	display: none;
+}
+
+/* Ajouter la classe .screen dans une balise HTML pour n'afficher les éléments seulement à l'écran */
+/* Add .screen class to display html elements only for the print */
+.screen {
+	display: block;
+}
+
+
+
+
+/*--------- PRINT STYLE -------*/
+
+/* Media queries : permet d'appliquer des styles en fonction du support de lecture de la page web */
+/* Media queries : Apply styles in relation of the reading support of the webpage */
+
+@media print {
+	@page {
+		/* choisir le format d'export */
+		/* choosse the size of the pdf output */
+		size: 210mm 297mm;
+    margin-right: 0;
+		padding-right: 0;
+	}
+
+    body {
+		margin: 0;
+		padding: 0;
+	}
+
+	/* Paramètres de la page */
+	/* Page settings */
+    .page {
+			width: calc(var(--page-width) + 1);
+			height: calc(calc(var(--page-height) - var(--page-margin) * 2) - 1mm);
+			padding: var(--page-margin);
+			page-break-after:always;
+			position: relative;
+	}
+
+	/* Affiche les éléments ayant la classe print */
+	/* Display HTML element with the .print class */
+    .print {
+		display: block;
+	}
+
+	/* N'affiche pas les éléments ayant la classe screen */
+	/* Doesn't display HTML element with the .screen class */
+    .screen {
+		display: none;
+	}
+
+}

@@ -1,0 +1,36 @@
+/* PRINT PREVIEW IN THE BROWSER */
+@media screen{
+	body{
+		width: 100%;
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+        background: black;
+		/* Paramêtre le décompter de page */
+		/* Set a page counter */
+		counter-reset: page-counter;
+	}
+
+	/* Paramètres de la page */
+	/* Page settings */
+	.page{
+		width: var(--page-width);
+		height: var(--page-height);
+		page-break-after: always;
+		position: relative;
+		background: white;
+		margin: 10px;
+	}
+
+	/* Affiche les éléments ayant la classe print */
+	/* Display HTML element with the .print class */
+	.print{
+		display: block;
+	}
+
+	/* N'affiche pas les éléments ayant la classe screen */
+	/* Doesn't display HTML element with the .screen class */
+	.screen{
+		display: none;
+	}
+}
